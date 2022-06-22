@@ -1,0 +1,41 @@
+/* :root{
+  --sidebarColor: linear-gradient(to bottom right, rgb(107, 108, 109), rgb(18, 18, 19));
+  --textColor2: white;
+  --hoverColor: #9690eb;
+}
+
+@media screen and (max-width: 1024px) {
+  
+}
+@media screen and (min-width: 1024px) {
+  
+} */
+.css-x807kr-MuiDrawer-docked-RaSidebar-root{
+  background-image: linear-gradient(to bottom right, rgb(107, 108, 109), rgb(18, 18, 19));
+  padding-top: 4%;
+}
+.css-gangdr-MuiDrawer-docked-RaSidebar-root{
+  height: 100%;
+}
+.css-gangdr-MuiDrawer-docked-RaSidebar-root .RaSidebar-fixed{
+  background-image: linear-gradient(to bottom right, rgb(107, 108, 109), rgb(18, 18, 19));
+  padding-top: 4%;
+  top: 0;
+}
+.css-1gf0rvv-MuiButtonBase-root-MuiMenuItem-root-RaMenuItemLink-root {
+  color: white;
+  height: 50px;
+}
+.css-1gf0rvv-MuiButtonBase-root-MuiMenuItem-root-RaMenuItemLink-root.RaMenuItemLink{
+  color: white;
+}
+.css-cveggr-MuiListItemIcon-root{
+  color: white;
+}
+.css-1gf0rvv-MuiButtonBase-root-MuiMenuItem-root-RaMenuItemLink-root.RaMenuItemLink-active{
+  background-color: #7e7ea1; 
+  border-radius: 10px; 
+}
+.css-1gf0rvv-MuiButtonBase-root-MuiMenuItem-root-RaMenuItemLink-root .MuiListItemIcon-root{
+  color: white;
+}

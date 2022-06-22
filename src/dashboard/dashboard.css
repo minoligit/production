@@ -1,0 +1,56 @@
+@media only screen and (max-width: 767px) {
+    .btnStyle {
+        display: none;
+    }
+}
+.countStyle{
+    background-color: rgb(221, 223, 224);
+    border-radius: 10px;
+    padding: 20px;
+    width: auto;
+}
+.btnStyle{
+    background-color: blueviolet;
+    color: white;
+    border-color: blueviolet;
+    border-radius: 20px;
+    height: 40px;
+    width: 250px;
+    font-size: medium;
+}
+.hrStyle{
+    color: rgb(175, 173, 173);
+    font-weight: normal;
+}
+.columnStyle{
+    color: dimgray;
+    font-size: 100%;
+}
+.getCount{
+    font-size: 250%;
+    font-weight: bold;
+    color: rgb(48, 47, 47);
+}
+#icon1{
+    font-size: 500%;
+    color: goldenrod;
+}
+#icon2{
+    font-size: 500%;
+    color: rgb(63, 196, 81);
+}
+#icon3{
+    font-size: 500%;
+    color: brown;
+}
+.boxStyle{
+    background-color: white; color: black;
+    border: 3px solid; border-radius: 15px;
+    width: 250px; height: 150px;
+    text-align: center;
+    font-size: 150%; font-weight: 700;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 5%;
+}
+
+

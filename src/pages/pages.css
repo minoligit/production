@@ -1,0 +1,46 @@
+/* @media (min-width: 0px) and (max-width: 599.95px){
+    .css-155qlb5-MuiModal-root-MuiDrawer-root-RaSidebar-root .MuiPaper-root{
+        background-image: linear-gradient(to bottom right, rgb(107, 108, 109), rgb(18, 18, 19));
+    }
+}
+.RaSidebar-fixed{
+    background-image: linear-gradient(to bottom right, rgb(107, 108, 109), rgb(18, 18, 19));
+    width: 12%;
+    min-width: 180px;
+} */
+.css-1xyy4xb-MuiFormControl-root-MuiTextField-root-RaResettableTextField-root{
+    width: 100%;
+}
+.MuiMenuItem-root {
+    color: white;
+}
+.MuiMenuItem-root :hover{
+    background-color: rgb(185, 204, 226);
+    color: black;
+}
+.ModifyBtn{
+    border: 0.5 px solid rgb(141, 163, 235);
+    border-radius: 5px;
+}
+.loginPageForms{
+    margin-left: 5%;
+    margin-top: 4%;
+    width: 30%;
+    text-align: center;
+    min-width: 400px;
+    background-color: white;
+    opacity: 75%;
+}
+@media only screen and (max-width: 1024px) {
+    .loginPageForms{
+    margin-left: 5%;
+    margin-top: 10%;
+    width: 30%;
+    text-align: center;
+    min-width: 300px;
+    background-color: white;
+    opacity: 75%
+    }
+}
+
+

@@ -1,38 +1,129 @@
-.App {
+:root{
+  --backgroundColor: rgb(244, 247, 247);
+  --headerColor: linear-gradient(to bottom right, #667499, #40336e);
+  --textColor1: black;
+  --textColor2: white;
+  --hoverColor: #9690eb;
+}
+@media only screen and (min-width: 1024px) {
+  
+}
+@media only screen and (max-width: 1024px) {
+  
+}
+.h2{
+  font-size:xx-large;
+  font-weight: 700;
   text-align: center;
+  margin-top:20px;margin-bottom: 20px;
+}
+.css-aof9pm-MuiPaper-root-MuiAppBar-root-RaAppBar-root{
+  background-image: var(--headerColor);
+  height: 50px;
+}
+.css-1ghzyfa-RaLoadingIndicator-root{
+  display: none;
+}
+.css-1wlk0hk-MuiAvatar-root{
+  border-radius: 50%;
+  width: 25px; height: 25px;
+  margin: 10%;
+}
+.headerbutton{
+  background-color: transparent;
+  border: none;
+  color: var(--textColor2);
+  height: 50px;
+  width: auto;
+  vertical-align: baseline;
+}
+.headericon{
+  background-color: #7e7ea1; color: var(--textColor2);
+  border-radius: 50%; border-color: transparent;
+  width: 35px; height: 35px;
+  position: inherit; margin: 5%;
+  font-size: larger; text-align: center;
+}
+.headerbutton :hover{
+  color: var(--hoverColor);
+}
+.headericon :hover{
+  color: var(--hoverColor);
+}
+.popmodal{
+  background-color: #d7d6f8;
+  border: 2px solid #2b2a57; border-radius: 5px;
+  width: 700px; height: auto;
+  max-height: 700px; min-height: 400px;
+  font-size: larger;
+  margin: auto; margin-top: 50px; margin-bottom: 50px;
+  overflow: scroll;
+  padding: 30px;
+}
+.popmodal::-webkit-scrollbar{
+  display: none;
+}
+.popmodal-small{
+  background-color: #f8d6d6;
+  border: 2px solid #2b2a57; border-radius: 5px;
+  height: 250px; width: 400px;
+  margin: auto;
+  font-size: larger;
+}
+.showForm{
+  background-color: #d7d6f8;
+  border: 2px solid #2b2a57; border-radius: 5px;
+  width: 700px; height: auto;
+  font-size: x-large;
+  max-height: 700px; min-height: 400px;
+  margin: auto; margin-top: 50px; margin-bottom: 50px;
+  overflow: scroll; padding: 30px;
+}
+.formLine{
+  width: max-content;
+}
+.showForm::-webkit-scrollbar{
+  display: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.closeBtn{
+  background-color: #F08080;
+  border-color: #F08080;
   color: white;
+  border-radius: 5px;
+  width: fit-content;
+  margin: 0.5%;
 }
-
-.App-link {
-  color: #61dafb;
+.tableStyle{
+  border: 1px solid black;
+  padding: 3%;
+  width: 100%;
+  border-collapse: collapse;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tableStyle th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #9690eb;
+  color: rgb(5, 5, 5);
+}
+.tableStyle tr:nth-child(even){
+  background-color: #c4c4f3;
+}
+.tableStyle tr:hover{
+  color: #3262bd;
+}
+#table01::-webkit-scrollbar{
+  display: none;
+}
+.css-1or4sgo-MuiButtonBase-root-MuiButton-root-RaButton-root.MuiButton-sizeSmall{
+  color: #667499;
+}
+.css-1or4sgo-MuiButtonBase-root-MuiButton-root-RaButton-root.MuiButton-sizeSmall:hover{
+  background-color: #a1a9be;
+  color: #40336e;
+  font-weight: 900;
+}
+.css-181sjsi{
+  font-size: larger;
 }
