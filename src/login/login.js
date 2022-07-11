@@ -6,8 +6,7 @@ import LoginForm from './loginForm';
 function Login(){
 
     return(
-        <div style={{backgroundImage:"url("+require("../images/userLogin.jpg")+")",backgroundRepeat:"no-repeat",
-            backgroundSize:"cover",height:"100%",width:"100%",position:"absolute",top:"0"}}>
+        <div style={{backgroundImage:"url("+require("../images/userLogin.jpg")+")"}} className="loginPage">
             <style type="text/css">
                 {"#SideBar {display: none}"}{".Header {display: none}"}
             </style>

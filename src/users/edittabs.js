@@ -2,6 +2,7 @@ import { Edit,TextInput,SimpleForm } from 'react-admin';
 
 
 export const EditUserLogins = ({...props}) => {    
+    console.log("mm");
     return(
         <Edit {...props} mutationMode="pessimistic">
             <SimpleForm warnWhenUnsavedChanges className="popmodal">

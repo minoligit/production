@@ -1,0 +1,48 @@
+.loginPage{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100% ; width: 100% ;
+    position: absolute; top: 0;
+}
+.loginPageForms{
+    margin-left: 5%; margin-top: 4%;
+    width: 30%; min-width: 400px;
+    text-align: center;
+    background-color: white;
+    opacity: 75%;
+    border: 3px #40336e; border-style: inset;
+    border-radius: 20px; 
+}
+@media only screen and (max-width: 1024px) {
+    .loginPageForms{
+        margin-left: 5%; margin-top: 10%;
+        width: 30%; min-width: 300px;
+        text-align: center;
+        background-color: white;
+        border: 3px #40336e; border-style: inset;
+        opacity: 75%
+    }
+}
+.headerStyle {
+    background-image: linear-gradient(to bottom right, rgb(123, 136, 172), rgb(56, 43, 105));
+    width: 100%;
+    padding: 5%; margin: 0;
+    color: white;
+    border-top-left-radius: 17px; border-top-right-radius: 16px; 
+}
+.inputStyle {
+    border-radius: 20px;
+    text-align: center;
+    width: 50%; margin-top: 1%; padding: 1%;
+    font-size: 100%;
+}
+.logBtn {
+    background-color: #9690eb;
+    min-width: 20%; margin: 2%;
+    border-radius: 15px ; 
+}
+.fgtPwdLink{
+    background-color: transparent; color: red ;
+    border: none;
+    text-decoration: underline;
+}

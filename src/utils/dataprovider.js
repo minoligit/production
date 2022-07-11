@@ -84,7 +84,7 @@ export default (apiUrl) => {
         // },
         
         getMany: (resource, params) => {
-            console.log(params);
+            console.log("Get Many",params);
             const query = {
                 filter: JSON.stringify({ ids: params.ids }),
             };
@@ -92,7 +92,7 @@ export default (apiUrl) => {
             return httpClient(url).then(({ json }) => ({ data: json }));
         },
         updateMany: (resource, params) => {
-            console.log(params);
+            console.log("Up Many",params);  
             const query = {
                 filter: JSON.stringify({ id: params.ids}),
             };

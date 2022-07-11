@@ -2,15 +2,15 @@ import React from 'react';
 import { List, Datagrid, NumberField,DateField, TextField, ReferenceManyField } from 'react-admin';
 import { Show, TabbedShowLayout, Tab } from 'react-admin';
 import { EditButton } from 'react-admin';
-import UserColumns from './columns';
+import { RoleAccess} from '../utils/common';
 
 export const ShowUser = ({...props}) => {
     return(
         <Show {...props}>
             <TabbedShowLayout className='showForm'>
                 <Tab label="General" basePath="/">
-                    {UserColumns().map((data,key) => (
-                        <TextField key={key} source={data.name} label={data.label} disabled={data.edit_disabled}
+                    {RoleAccess("users","list").map((data,key) => (
+                        <TextField key={key} source={data.field} label={data.title} disabled={data.edit_disabled}
                             className="formLine"/>
                     ))}
                 </Tab>

@@ -53,12 +53,12 @@
 .popmodal{
   background-color: #d7d6f8;
   border: 2px solid #2b2a57; border-radius: 5px;
-  width: 700px; height: auto;
+  width: 60%; height: auto;
   max-height: 700px; min-height: 400px;
   font-size: larger;
-  margin: auto; margin-top: 50px; margin-bottom: 50px;
+  margin: auto; margin-top: 30px; margin-bottom: 30px;
   overflow: scroll;
-  padding: 30px;
+  padding: 20px; text-align: center;
 }
 .popmodal::-webkit-scrollbar{
   display: none;
@@ -75,7 +75,7 @@
   border: 2px solid #2b2a57; border-radius: 5px;
   width: 700px; height: auto;
   font-size: x-large;
-  max-height: 700px; min-height: 400px;
+  max-height: 500px; min-height: 300px;
   margin: auto; margin-top: 50px; margin-bottom: 50px;
   overflow: scroll; padding: 30px;
 }
@@ -85,7 +85,20 @@
 .showForm::-webkit-scrollbar{
   display: none;
 }
-
+.asideForm-large{
+  width: 600px; height: auto;
+  font-size: medium;
+  max-height: 500px; min-height: 300px;
+  margin: auto;
+  overflow: scroll; 
+}
+.asideForm-small{
+  width: 400px; height: auto;
+  font-size: medium;
+  max-height: 500px; min-height: 300px;
+  margin: 0;
+  overflow: scroll; 
+}
 .closeBtn{
   background-color: #F08080;
   border-color: #F08080;
@@ -107,14 +120,8 @@
   background-color: #9690eb;
   color: rgb(5, 5, 5);
 }
-.tableStyle tr:nth-child(even){
-  background-color: #c4c4f3;
-}
 .tableStyle tr:hover{
   color: #3262bd;
-}
-#table01::-webkit-scrollbar{
-  display: none;
 }
 .css-1or4sgo-MuiButtonBase-root-MuiButton-root-RaButton-root.MuiButton-sizeSmall{
   color: #667499;
@@ -126,4 +133,18 @@
 }
 .css-181sjsi{
   font-size: larger;
+}
+.css-7zb6mn-MuiButtonBase-root-MuiButton-root-RaButton-root-RaBulkUpdateWithUndoButton-root.MuiButton-sizeSmall{
+  color: #667499;
+}
+.css-7zb6mn-MuiButtonBase-root-MuiButton-root-RaButton-root-RaBulkUpdateWithUndoButton-root.MuiButton-sizeSmall:hover{
+  background-color: #a1a9be;
+  color: #40336e;
+  font-weight: 900;
+}
+.css-7sb2cf-MuiButtonBase-root-MuiButton-root-RaButton-root-RaBulkDeleteWithConfirmButton-root.MuiButton-sizeSmall:hover{
+  font-weight: 900;
+}
+.css-1yqpi80-MuiTypography-root{
+  color: #40336e;
 }

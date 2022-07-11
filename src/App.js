@@ -19,8 +19,8 @@ function App(){
     return(
         <Admin theme={theme} layout={Layout} loginPage={Login} authProvider={AuthProvider} 
             dataProvider={dataProvider} requireAuth>
-            <Resource name='home' {...home}/>
-            <Resource name='dashboard' {...dashboard}/>
+            <Resource name='home' options={{label:"Home"}} {...home}/>
+            <Resource name='dashboard' options={{label:"Dashboard"}} {...dashboard}/>
             <Resource name="users" {...users} />
             <Resource name="projects" {...projects} />
             <Resource name="servers" {...servers} />

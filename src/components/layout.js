@@ -6,14 +6,6 @@ import 'bootstrap';
 import '../App.css';
 import Profile from './profile';
 
-const SwitchLanguage = () => {
-  
-  return (
-    <div></div>
-  );
-};
-
-
 const MyUserMenu = props => (
 
   <div style={{display:"flex",width:"20%"}}>
@@ -28,3 +20,12 @@ const MyAppBar = props => (
 );
 
 export default props => <Layout {...props} appBar={MyAppBar} />;
+
+export const ListStyle = () => ({
+  '& .RaDatagrid-headerCell': {
+      backgroundColor: '#7e7ea1'
+  },
+  '& .RaDatagrid-rowEven': {
+      backgroundColor: '#e1e1fc'
+  }
+});

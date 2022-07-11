@@ -1,5 +1,5 @@
 import { useRedirect } from "react-admin";
-import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { getToken } from "../utils/common";
 
 const AuthProvider = {

@@ -1,72 +1,81 @@
 import React from 'react';
-import { List, Datagrid, SimpleForm, TextField, EditButton, DeleteWithConfirmButton } from 'react-admin';
+import { List, Datagrid, Form, TextField, EditButton, DeleteWithConfirmButton } from 'react-admin';
 import { Edit, Create, TextInput } from 'react-admin';
-import { CreateButton, ExportButton,FilterButton, FilterForm } from 'react-admin';
-import { Stack } from '@mui/material';
+import { CreateButton, ExportButton,FilterButton, FilterForm,SaveButton } from 'react-admin';
+import { Stack,Grid } from '@mui/material';
 import Notes from '@mui/icons-material/Notes';
-import ProjectColumns from './columns';
-import {getRole,ListPagination} from '../utils/common';
+import {ListPagination,RoleAccess} from '../utils/common';
+import { ListStyle } from '../components/layout';
 import '../App.css';
 export const ProjectsIcon = Notes;
-const permissions  = getRole();
 
 export const ListToolbar = () => {
     return(
-        <Stack direction="row" justifyContent="space-between" marginTop={5}>
+        <Stack direction="row" justifyContent="space-between" marginTop={2}>
             <FilterForm filters={filterProjects} />
             <div>
-                <FilterButton filters={filterProjects} />
-                {(permissions === 'PM'||permissions === 'AIP') &&
-                    <div style={{display:"inline"}}>
-                        <CreateButton/>
-                        <ExportButton/>
-                    </div>
-                }
+                {RoleAccess("projects","filter").length===0? null: <FilterButton filters={filterProjects}/>}
+                {RoleAccess("projects","create").length===0? null: <CreateButton />}
+                {RoleAccess("projects","export").length===0? null: <ExportButton />}
             </div>
         </Stack>
     )
 };
+
 export const ProjectsList = () => {
     return(
-        <List actions={<ListToolbar />} pagination={<ListPagination />}>
-            <Datagrid rowClick="show">
-                {ProjectColumns().map((data,key) => (
-                    <TextField key={key} source={data.name} label={data.label}/>
+        <List actions={<ListToolbar />} pagination={<ListPagination />} style={{margin:'3%'}}>
+            <Datagrid rowClick="show" sx={ListStyle}>
+                {RoleAccess("projects","list").map((data,key) => (
+                    <TextField key={key} source={data.field} label={data.title}/>
                 ))}
-                {(permissions === 'PM'||permissions === 'AIP') &&
-                    <div style={{display:"inline"}}>
-                        <EditButton basePath="/getUsers" label=''/>
-                        <DeleteWithConfirmButton label=""
-                        confirmContent="You will not be able to recover this record. Are you sure?"/> 
-                    </div>
-                }   
+                {RoleAccess("projects","edit").length===0? null: <EditButton label=''/>}
+                {RoleAccess("projects","delete").length===0? null: <DeleteWithConfirmButton label=""
+                    confirmContent="You will not be able to recover this record. Are you sure?"/>}  
             </Datagrid>
         </List>
     );
 };
+
+export const CreateProjects = () => (
+    <Create title=''>
+        <Form warnWhenUnsavedChanges className="popmodal">
+            <h4>Add New Project</h4>
+            <Grid container>
+                <Grid item xs={12}>
+                    {RoleAccess("projects","create").map((data,key) => (
+                        <TextInput key={key} type={data.datatype} source={data.field} label={data.title} 
+                            required={data.required}/>
+                    ))}
+                </Grid>
+                <Grid item xs={12}>
+                    <SaveButton/>
+                </Grid>
+            </Grid>  
+        </Form>
+    </Create>
+);
+
 export const EditProjects = (props) => {
     return(
         <Edit {...props}>
-            <SimpleForm warnWhenUnsavedChanges className="popmodal">
-                {ProjectColumns().map((data,key) => (
-                    <TextInput key={key} type={data.datatype} source={data.name} label={data.label} 
-                        disabled={data.edit_disabled} required={data.required}/>
-                ))}
-            </SimpleForm>
+            <Form warnWhenUnsavedChanges className="popmodal">
+                <Grid container>
+                    <Grid item xs={12}>
+                    {RoleAccess("projects","edit").map((data,key) => (
+                        <TextInput key={key} type={data.datatype} source={data.field} label={data.title} 
+                            required={data.required}/>
+                    ))}
+                    </Grid>
+                    <Grid item xs={12}>
+                        <SaveButton />
+                    </Grid>
+                </Grid>
+            </Form>
         </Edit>
     )
 };
-export const CreateProjects = () => (
-    <Create title=''>
-        <SimpleForm warnWhenUnsavedChanges className="popmodal">
-            <h4>Add New Project</h4>
-            {ProjectColumns().map((data,key) => (
-                <TextInput key={key} type={data.datatype} source={data.name} label={data.label} 
-                    disabled={data.create_disabled} required={data.required}/>
-            ))}
-        </SimpleForm>
-    </Create>
-);
+
 const filterProjects = [
     <TextInput label="Project Name" source="pro_name" defaultValue="" />,
     <TextInput label="SVR Alias" source="svr_alias" defaultValue="" />,

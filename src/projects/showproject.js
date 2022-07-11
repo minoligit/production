@@ -1,7 +1,8 @@
 import React from 'react';
 import { List, Datagrid, NumberField,DateField, TextField, ReferenceManyField, ShowButton } from 'react-admin';
 import { Show, TabbedShowLayout, Tab,ReferenceField,SimpleShowLayout } from 'react-admin';
-import { EditButton } from 'react-admin';
+import { EditButton,CreateButton,ExportButton } from 'react-admin';
+import { RoleAccess } from '../utils/common';
 
 export const ShowProject = ({...props}) => {
     return(
@@ -17,6 +18,13 @@ export const ShowProject = ({...props}) => {
                 {/* </Tab> */}
                 <Tab label="Users" basePath="projectUsers">
                     <ReferenceManyField source='id' reference='proUsers' target='id'>
+                        <div>
+                        <ReferenceManyField source='id' reference="users" target='id'>
+                            <div style={{display:"flex"}}>
+                            {RoleAccess("users","create").length==0? null: <CreateButton name='createuser'/>}
+                            {RoleAccess("users","export").length==0? null: <ExportButton />}
+                            </div>
+                        </ReferenceManyField>
                         <Datagrid>
                             <NumberField label="Id" source="id" />
                             <TextField label="Emp No" source="emp_no" />
@@ -25,10 +33,11 @@ export const ShowProject = ({...props}) => {
                             <ReferenceManyField source='id' reference="users" target='id'>
                                 <div style={{display:"flex"}}>
                                     <ShowButton label='' name='showuser' />
-                                    <EditButton label='' name='edituser'/>
+                                    {RoleAccess("users","edit").length==0? null: <EditButton label='' name='edituser'/>}
                                 </div>
                             </ReferenceManyField>
                         </Datagrid>
+                        </div>
                     </ReferenceManyField>
                 </Tab>
                 <Tab label="Server" path="projectServers">

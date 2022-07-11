@@ -1,7 +1,7 @@
 import { ProjectsList,EditProjects,CreateProjects,ProjectsIcon} from "./getProjects";
 import { ShowProject } from "./showproject";
 import { ShowUser } from "../users/showuser";
-import { EditUsers } from "../users/getUsers";
+import { CreateUsers, EditUsers } from "../users/getUsers";
 
 export default {
     list : ProjectsList,
@@ -11,4 +11,5 @@ export default {
     icon : ProjectsIcon,
     showuser : ShowUser,
     edituser : EditUsers,
+    createuser : CreateUsers,
 }

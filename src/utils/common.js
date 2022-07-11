@@ -1,35 +1,6 @@
 import { Pagination } from "react-admin";
-
-// // return the user data from the session storage
-// export const getUser = () => {
-//     const userStr = sessionStorage.getItem('user');
-//     if (userStr) return JSON.parse(userStr);
-//     else return null;
-// }
-   
-// // return the token from the session storage
-// export const getToken = () => {
-//     return sessionStorage.getItem('token') || null;
-// }
-   
-// // remove the token and user from the session storage
-// export const removeUserSession = () => {
-//     sessionStorage.removeItem('token');
-//     sessionStorage.removeItem('user');
-// }
-   
-// // set the token and user from the session storage
-// export const setUserSession = (token, user) => {
-//     sessionStorage.setItem('token', token);
-//     sessionStorage.setItem('user', JSON.stringify(user));
-// }
-
-// export const getUser = () => {
-//     // const userStr = localStorage.getItem('user');
-//     // if (userStr) return JSON.parse(userStr);
-//     // else return null;
-//     return sessionStorage.getItem('username') || null;
-// }
+import React,{useState,useEffect} from 'react';
+import Axios from 'axios';
    
 // return the token from the session storage
 export const getToken = () => {
@@ -44,4 +15,20 @@ export const removeUserSession = () => {
 }
 
 export const ListPagination = () => <Pagination rowsPerPageOptions={[5,10,25,50,100]} />;
+
+export const RoleAccess = (resc,opt) => {
+    const [role,setRole] = useState(getRole());
+    const [resource,setResource] = useState(resc);
+    const [option,setOption] = useState(opt);
+    const [access, setAccess] = useState([]); 
+
+    useEffect(() =>{
+        Axios.get(`http://localhost:8080/getAccess/${role}/${resource}/${option}`).then((res) => {
+            setAccess(res.data);
+        });
+    }, []);
+    return(
+        access 
+    )
+}
 
