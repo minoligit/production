@@ -7,6 +7,9 @@ const theme = {
         width: 200,
         closedWidth: 50
     },
+    // palette: {
+    //     mode: 'dark', 
+    // },
 };
 
 export default theme;

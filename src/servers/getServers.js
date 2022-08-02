@@ -1,5 +1,6 @@
 import React from 'react';
-import { List, Datagrid, TextField, EditButton, DeleteWithConfirmButton } from 'react-admin';
+import {useNavigate} from "react-router-dom";
+import { List, Datagrid, TextField, EditButton, DeleteWithConfirmButton,Button } from 'react-admin';
 import { Edit, Create, Form, TextInput,FilterButton,FilterForm  } from 'react-admin';
 import { CreateButton,ExportButton,SaveButton } from 'react-admin';
 import { Stack,Grid } from '@mui/material';
@@ -25,7 +26,7 @@ export const ListToolbar = () => {
 export const ServersList = ({...props}) => {
     return(
         <List actions={<ListToolbar />} {...props} pagination={<ListPagination />} style={{margin:'3%'}}>
-            <Datagrid sx={ListStyle}>
+            <Datagrid sx={ListStyle} rowClick='show'>
                 {RoleAccess("servers","list").map((data,key) => (
                     <TextField key={key} source={data.field} label={data.title}/>
                 ))}
@@ -38,6 +39,7 @@ export const ServersList = ({...props}) => {
 };
 
 export const CreateServers = () => {
+    const navigate = useNavigate();
     return (
         <Create title=''>
             <Form warnWhenUnsavedChanges className="popmodal" >
@@ -50,6 +52,7 @@ export const CreateServers = () => {
                         ))}
                     </Grid>
                     <Grid item xs={12}>
+                        <Button label='<< Back' className='formBtn' onClick={() => navigate(-1)}/> 
                         <SaveButton />
                     </Grid>
                 </Grid>          
@@ -59,6 +62,7 @@ export const CreateServers = () => {
 };
 
 export const EditServers = () => {
+    const navigate = useNavigate();
     return(
         <Edit>
             <Form warnWhenUnsavedChanges className="popmodal">
@@ -70,6 +74,7 @@ export const EditServers = () => {
                         ))}
                     </Grid>
                     <Grid item xs={12}>
+                        <Button label='<< Back' className='formBtn' onClick={() => navigate(-1)}/> 
                         <SaveButton />
                     </Grid>
                 </Grid>               

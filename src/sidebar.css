@@ -10,6 +10,10 @@
 @media screen and (min-width: 1024px) {
   
 } */
+.MuiMenuItem-root {
+  color: #d3d0d0 !important;
+  font-weight: 550 !important;
+}
 .css-x807kr-MuiDrawer-docked-RaSidebar-root{
   background-image: linear-gradient(to bottom right, rgb(107, 108, 109), rgb(18, 18, 19));
   padding-top: 4%;
@@ -18,7 +22,8 @@
   height: 100%;
 }
 .css-gangdr-MuiDrawer-docked-RaSidebar-root .RaSidebar-fixed{
-  background-image: linear-gradient(to bottom right, rgb(107, 108, 109), rgb(18, 18, 19));
+  background-image: linear-gradient(to bottom right, #6b6c6d, #121213);
+  position: relative !important;
   padding-top: 4%;
   top: 0;
 }
@@ -36,6 +41,9 @@
   background-color: #7e7ea1; 
   border-radius: 10px; 
 }
+.css-1gf0rvv-MuiButtonBase-root-MuiMenuItem-root-RaMenuItemLink-root.RaMenuItemLink:hover{
+  background-color: #6b6c6d;
+}
 .css-1gf0rvv-MuiButtonBase-root-MuiMenuItem-root-RaMenuItemLink-root .MuiListItemIcon-root{
-  color: white;
+  color: #d3d0d0 !important;
 }

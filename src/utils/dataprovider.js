@@ -1,9 +1,12 @@
+import { createContext} from 'react';
 import { fetchUtils } from 'react-admin';
 import { stringify } from 'query-string';
 import { updatedDiff } from 'deep-object-diff';
 const httpClient = fetchUtils.fetchJson;
 
-export default (apiUrl) => {
+export const dataContext  = createContext(null);
+
+function Dataprovider (apiUrl) {
 
     const getOneJson = (resource, id) => { 
         httpClient(`${apiUrl}/${resource}/${id}`)
@@ -12,21 +15,23 @@ export default (apiUrl) => {
     };
     return {
 
-        getList: async (resource, params) => {
-            const { page, perPage } = params.pagination;
-            const { field, order } = params.sort;
-            const query = {
-                sort: JSON.stringify([field, order]),
-                range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
-                filter: JSON.stringify(params.filter),
-            };
-            const url = `${apiUrl}/${resource}?${stringify(query)}`;
+        // getList: async (resource, params) => {
+            
+        //     const { page, perPage } = params.pagination;
+        //     const { field, order } = params.sort;
+        //     const query = {
+        //         sort: JSON.stringify([field, order]),
+        //         range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
+        //         filter: JSON.stringify(params.filter),
+        //     };
+        //     const url = `${apiUrl}/${resource}?${stringify(query)}`;
     
-            return httpClient(url).then(({ headers, json }) => ({
-                data: json,
-                total: parseInt(headers.get('content-range').split('/').pop(), 10),
-            }));
-        },
+        //     return httpClient(url).then(({ headers, json }) => (
+        //         dataContext.Provider = json,
+        //         // (console.log(dataContext.Provider)),
+        //         {   data: json, total: parseInt(headers.get('content-range').split('/').pop(), 10), }
+        //     ));
+        // },
         getOne: async (resource, params) => {
             return httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
                 data: json,
@@ -108,6 +113,23 @@ export default (apiUrl) => {
         //         body: JSON.stringify(params.data),
         //     }))
         // ).then(responses => ({ data: responses.map(({ json }) => json.id) })),
-        
+        getList: async (resource, params) => {
+
+            const { page, perPage } = params.pagination;
+            const { field, order } = params.sort;
+            const query = {
+                sort: JSON.stringify([field, order]),
+                range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
+                filter: JSON.stringify(params.filter),
+            };
+            const url = `${apiUrl}/${resource}?${stringify(query)}`;
+    
+            return httpClient(url).then(({ headers, json }) => (
+                dataContext.Provider = json,
+                // (console.log(dataContext.Provider)),
+                {   data: json, total: parseInt(headers.get('content-range').split('/').pop(), 10), }
+            ));
+        },
         
 }}
+export default Dataprovider;

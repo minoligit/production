@@ -1,10 +1,13 @@
 import React from 'react';
-import { List, Datagrid, NumberField,DateField, TextField, ReferenceManyField, ShowButton } from 'react-admin';
+import {useNavigate} from "react-router-dom";
+import { List, Datagrid, NumberField,DateField, TextField, ReferenceManyField, ShowButton,Button } from 'react-admin';
 import { Show, TabbedShowLayout, Tab,ReferenceField,SimpleShowLayout } from 'react-admin';
 import { EditButton,CreateButton,ExportButton } from 'react-admin';
 import { RoleAccess } from '../utils/common';
 
 export const ShowProject = ({...props}) => {
+    const navigate = useNavigate();
+
     return(
         <Show {...props}>
             <TabbedShowLayout className='showForm'>
@@ -16,7 +19,7 @@ export const ShowProject = ({...props}) => {
                         </Datagrid>
                     </NestedResourceField> */}
                 {/* </Tab> */}
-                <Tab label="Users" basePath="projectUsers">
+                <Tab label="Users" basepath="projectUsers">
                     <ReferenceManyField source='id' reference='proUsers' target='id'>
                         <div>
                         <ReferenceManyField source='id' reference="users" target='id'>
@@ -87,6 +90,7 @@ export const ShowProject = ({...props}) => {
                         </Datagrid>
                     </ReferenceManyField>
                 </Tab>
+                <Button label='X' className='closeBtn' onClick={() => navigate("/projects")}/><br/>
             </TabbedShowLayout>
         </Show>
     )

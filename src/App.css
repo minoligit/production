@@ -86,7 +86,7 @@
   display: none;
 }
 .asideForm-large{
-  width: 600px; height: auto;
+  width: 800px; height: auto;
   font-size: medium;
   max-height: 500px; min-height: 300px;
   margin: auto;
@@ -98,6 +98,11 @@
   max-height: 500px; min-height: 300px;
   margin: 0;
   overflow: scroll; 
+}
+.formBtn{
+  font-weight: 500; font-size: 0.875rem;
+  width: 96px; height: 36px;
+  padding: 6px 16px;
 }
 .closeBtn{
   background-color: #F08080;
@@ -123,6 +128,7 @@
 .tableStyle tr:hover{
   color: #3262bd;
 }
+/*Table Option Buttons*/
 .css-1or4sgo-MuiButtonBase-root-MuiButton-root-RaButton-root.MuiButton-sizeSmall{
   color: #667499;
 }
@@ -147,4 +153,12 @@
 }
 .css-1yqpi80-MuiTypography-root{
   color: #40336e;
+}
+.profilePicIcon{
+  background-color: #7e7ea1; color: var(--textColor2);
+  border-radius: 50%; border-color: transparent;
+  width: 35px; height: 35px;
+  position: inherit; margin: 5%;
+  font-size: larger; text-align: center;
+  cursor: "pointer"; padding: 0;
 }

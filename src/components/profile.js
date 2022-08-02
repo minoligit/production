@@ -6,7 +6,7 @@ import Axios from 'axios';
 import { Avatar } from "@mui/material";
 
 
-function Profile(){
+function Profile( props){
 
     const [profilePicPath, setProfilePicPath] = useState();
     const [loggedUser, setLoggedUser] = useState([]);
@@ -36,28 +36,22 @@ function Profile(){
         width: "250px",
         color: "black"
     };
-    const profilePic = {
-        width: "80px",
-        height: "80px",
-        borderRadius: "50%",
-        cursor: "pointer"
-    }
+    // const profilePic = {
+    //     width: "35px",height: "35px",
+    //     cursor: "pointer",
+    //     top: "0", left: "0",
+    // }
 
+    const styles = props.className?props.className:"";
     return(
-        <div>
-            <button type="button" data-bs-toggle="dropdown" className="headerbutton">
-            {/* <div style={{fontSize:"80%"}} className="headerbutton">
-                {loggedUser.map((data,key) =>(
-                    <div key={key}>{data.username}<br/>{data.roleName}</div>
-                ))} 
-            </div> */}
-            <Avatar src="https://marmelab.com/images/avatars/adrien.jpg"/>
+        <>
+            <button type="button" data-bs-toggle="dropdown" className="profilePicIcon">
+            <Avatar src="https://marmelab.com/images/avatars/adrien.jpg" />
             </button>
             <div className="dropdown-menu" style={dropDown}>
                 <div> 
                     {loggedUser.map((data,key) =>(
                         <div key={key}>{"Emp No : "+data.emp_no}<br/>{data.full_name}<br/>
-                            {/* {data.officeMail}<br/><br/>{data.gender}<br/>Joined on {data.joinedDate} */}
                             <br/><br/>
                         </div>
                     ))} 
@@ -67,7 +61,7 @@ function Profile(){
                         Sign-out
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

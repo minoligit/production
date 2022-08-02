@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import '../App.css';
-import '../pages/pages.css';
 import LoginForm from './loginForm';
 
 function Login(){

@@ -1,10 +1,13 @@
 import React from 'react';
+import {useNavigate} from "react-router-dom";
 import { List, Datagrid, NumberField,DateField, TextField, ReferenceManyField } from 'react-admin';
 import { Show, TabbedShowLayout, Tab } from 'react-admin';
-import { EditButton } from 'react-admin';
+import { EditButton,Button } from 'react-admin';
 import { RoleAccess} from '../utils/common';
 
 export const ShowUser = ({...props}) => {
+    const navigate = useNavigate();
+
     return(
         <Show {...props}>
             <TabbedShowLayout className='showForm'>
@@ -28,6 +31,7 @@ export const ShowUser = ({...props}) => {
                         </Datagrid>
                     </ReferenceManyField>               
                 </Tab>
+                <Button label='X' className='closeBtn' onClick={() => navigate("/users")}/><br/>
             </TabbedShowLayout>
         </Show>
     )

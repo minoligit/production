@@ -1,7 +1,7 @@
 import { Pagination } from "react-admin";
 import React,{useState,useEffect} from 'react';
 import Axios from 'axios';
-   
+
 // return the token from the session storage
 export const getToken = () => {
     return sessionStorage.getItem('token') || null;

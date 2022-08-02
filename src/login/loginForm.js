@@ -31,7 +31,7 @@ function LoginForm(){
                 setLoading(false);
                 sessionStorage.setItem('token',res.data[0].emp_no);
                 sessionStorage.setItem('role',res.data[0].role_alias);
-                navigate('/#/homepage');
+                navigate('/#/dashpage');
               }).catch(error => {
                   console.log(error);
                 setLoading(false);

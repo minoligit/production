@@ -1,5 +1,6 @@
 import React from 'react';
-import { List, Datagrid, Form, TextField, EditButton, DeleteWithConfirmButton } from 'react-admin';
+import {useNavigate} from "react-router-dom";
+import { List, Datagrid, Form, TextField, EditButton, DeleteWithConfirmButton,Button } from 'react-admin';
 import { Edit, Create, TextInput } from 'react-admin';
 import { CreateButton, ExportButton,FilterButton, FilterForm,SaveButton } from 'react-admin';
 import { Stack,Grid } from '@mui/material';
@@ -37,26 +38,31 @@ export const ProjectsList = () => {
     );
 };
 
-export const CreateProjects = () => (
-    <Create title=''>
-        <Form warnWhenUnsavedChanges className="popmodal">
-            <h4>Add New Project</h4>
-            <Grid container>
-                <Grid item xs={12}>
-                    {RoleAccess("projects","create").map((data,key) => (
-                        <TextInput key={key} type={data.datatype} source={data.field} label={data.title} 
-                            required={data.required}/>
-                    ))}
-                </Grid>
-                <Grid item xs={12}>
-                    <SaveButton/>
-                </Grid>
-            </Grid>  
-        </Form>
-    </Create>
-);
+export const CreateProjects = () => {
+    const navigate = useNavigate();
+    return(
+        <Create title=''>
+            <Form warnWhenUnsavedChanges className="popmodal">
+                <h4>Add New Project</h4>
+                <Grid container>
+                    <Grid item xs={12}>
+                        {RoleAccess("projects","create").map((data,key) => (
+                            <TextInput key={key} type={data.datatype} source={data.field} label={data.title} 
+                                required={data.required}/>
+                        ))}
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Button label='<< Back' className='formBtn' onClick={() => navigate(-1)}/> 
+                        <SaveButton/>
+                    </Grid>
+                </Grid>  
+            </Form>
+        </Create>
+    )  
+};
 
 export const EditProjects = (props) => {
+    const navigate = useNavigate();
     return(
         <Edit {...props}>
             <Form warnWhenUnsavedChanges className="popmodal">
@@ -68,6 +74,7 @@ export const EditProjects = (props) => {
                     ))}
                     </Grid>
                     <Grid item xs={12}>
+                        <Button label='<< Back' className='formBtn' onClick={() => navigate(-1)}/> 
                         <SaveButton />
                     </Grid>
                 </Grid>

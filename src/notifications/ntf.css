@@ -1,0 +1,47 @@
+.moreBtn{
+    font-size: 150%;
+}
+.moreBtn:hover{
+    background-color: #585858; color: white;
+    border-radius: 50%;
+    font-size: 150%;
+    padding: 5%;
+}
+.moreListBtn{
+    background-color: white; 
+    border: none;
+}
+.ntfBtn-unread{
+    background-color: rgb(88, 88, 88);
+    border: none; border-radius: 50%;
+    color: white;
+    height: 30px; width: 30px;
+    padding: 5%;
+}
+.ntfBtn-read{
+    background-color: transparent;
+    border: none; border-radius: 50%;
+    color: #585858; 
+    height: 30px; width: 30px;
+    padding: 5%;
+}
+.dropdown-modal{
+    background-color: transparent;
+    border: 2px solid black;
+}
+.dropdownBtn{
+    background-color: transparent;
+    border: none;
+    width: 100%;
+}
+.dropdownBtn:hover{
+    background-color: rgb(196, 194, 194);
+    border: none;
+}
+.css-10hburv-MuiTypography-root {
+    width: 80%;
+}
+.content{
+    width: 50%; height: 20px;
+    overflow: hidden;
+}
